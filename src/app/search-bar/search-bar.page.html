@@ -1,13 +1,31 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>searchBar</ion-title>
+      <ion-title id="header">FOOD FUSION</ion-title>
+
+      <ion-buttons slot="end">
+      <ion-button (click)="addNewRecipe()"> Add New Recipe </ion-button>
+
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="body-background" [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">searchBar</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div id="container">
+    <ion-searchbar placeholder="Search ingredients here.." id="searchbar" class="search-bar" (ionInput)="handleInput($event)">
+  </ion-searchbar>
+
+<ion-list *ngIf="showResults" class="search-results">
+  <ion-item *ngFor="let result of results">
+    <ion-label (click)="selectResult($event, result)">{{ result }}</ion-label>
+  </ion-item>
+</ion-list>
+
+
+</div>
 </ion-content>

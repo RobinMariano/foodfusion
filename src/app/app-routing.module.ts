@@ -14,7 +14,15 @@ const routes: Routes = [
   {
     path: 'search-bar',
     loadChildren: () => import('./search-bar/search-bar.module').then( m => m.SearchBarPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'ingredient-info',
+    loadChildren: () => import('./ingredient-info/ingredient-info.module').then( m => m.IngredientInfoPageModule)
+  },
+
   
   
 ];
