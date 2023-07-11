@@ -1,5 +1,6 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +8,6 @@ import {Router} from '@angular/router';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  /*@ViewChild('searchbar', {static: true}) searchbar:  ElementRef | null = null;
-  results: string[] = [];
-  showResults = false;
-  rawIngredients: string[] = [
-    'Onion', 'Garlic', 'Potato', 'Cabbage', 'Carrots','Egg', 'Butter'
-  ];
-  rawCondiments: string[] = [
-    'Oyster Sauce', 'Soy Sauce', 'Vinegar', 'Mustard', 'Mayonnaise'
-  ];*/
 
   constructor(private router: Router) {}
 
@@ -46,20 +38,6 @@ export class HomePage {
     }
   }   
 
-  limitInput(event: any, ingredient: string) {
-    const input = event.target as HTMLInputElement;
-    const inputValue = input.value;
-  
-    // Remove any non-digit characters
-    const sanitizedValue = inputValue.replace(/\D/g, '');
-  
-    // Limit the value to 3 digits
-    const limitedValue = sanitizedValue.slice(0, 3);
-  
-    // Update the selected quantity for the specific ingredient
-    this.selectedQuantities[ingredient] = limitedValue;
-  }
-  
   cookingProcedure: string = '';
   description: string = '';
 
@@ -74,4 +52,32 @@ export class HomePage {
     this.router.navigate(['/search-bar']) //href
   }
   
+  validateQuantity(event: any, ingredient: string) {
+    const input = event.target.value;
+    if (input && input.length > 3) {
+      event.target.value = input.slice(0, 3);
+      this.selectedQuantities[ingredient] = event.target.value;
+    }
+  }
+
+  recipe = {
+    recipeName: '',
+    description: '',
+    ingredientAdded: '',
+    cookingProcedure: '',
+    imageFile: null
+
+
+  };
+
+  onFileSelected(event: any) {
+    this.recipe.imageFile = event.target.files[0];
+  }
+
+  submitRecipe() {
+    // Perform the upload logic here
+    // Access the recipe properties: this.recipe.title, this.recipe.description, this.recipe.imageFile
+    // You can use HttpClient or any other method for uploading the image file
+    console.log('Recipe:', this.recipe);
+  }
 }

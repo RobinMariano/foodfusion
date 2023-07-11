@@ -31,6 +31,7 @@ export class SearchBarPage {
   )];
     this.showResults = true;
   }
+
   selectResult(event: any, result: string) {
     event.stopPropagation();
   }
@@ -45,5 +46,9 @@ export class SearchBarPage {
   }
   addNewRecipe(){
     this.router.navigate(['/home'])
+  }
+
+  clickResult(){
+    this.router.navigate(['/ingredient-info'])
   }
 }
