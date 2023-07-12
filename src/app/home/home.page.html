@@ -1,0 +1,105 @@
+<ion-header  translucent="true">
+  <ion-toolbar class="icons">
+    <ion-buttons slot="start">
+      <ion-button (click)="gotoSearchbar()">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="header-title">
+      <div class="logo-container">
+        <img src="assets/icon/logo.png" alt="FoodFusion Logo" class="logo-image">
+        <h1 class="logo-text">Register Recipe</h1>
+      </div>
+    </ion-title>
+    
+    
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="body-background" scrollEvents="true" [fullscreen]="true">
+  <div id="container">  
+
+    
+  
+
+      <ion-card class="custom-card rounded-card">
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked" color="primary">Recipe Name<span class="required-field">*</span></ion-label>
+          <ion-input label="" [(ngModel)]="recipeName" placeholder="Enter recipe name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">Description<span class="required-field">*</span></ion-label>
+          <ion-textarea label="" [(ngModel)]="description" (input)="adjustTextareaHeight($event)" placeholder="Enter description" required></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">Ingredients<span class="required-field">*</span></ion-label>
+          <ion-input label="" [(ngModel)]="newIngredient" (ionChange)="addIngredient()" placeholder="Enter ingredient" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">Cooking Procedure<span class="required-field">*</span></ion-label>
+          <ion-textarea label="" [(ngModel)]="cookingProcedure" (input)="adjustTextareaHeight($event)" placeholder="Enter cooking procedure" required></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">Upload Image<span class="required-field">*</span></ion-label>
+          <input  label="" type="file" (change)="onFileSelected($event)" accept="image/*" required>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    
+    
+    <ion-card *ngIf="selectedIngredients && selectedIngredients.length > 0">
+      <ion-list>
+        <ion-item>
+          <ion-label class="qty">Qty</ion-label>
+          <ion-label class="unit">Unit</ion-label>
+        </ion-item>
+    
+        <ion-item *ngFor="let ingredient of selectedIngredients">
+          <ion-label>{{ ingredient }}</ion-label>
+    
+          <ion-item class="custom-input">
+            <ion-input type="number" [(ngModel)]="selectedQuantities[ingredient]"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-select class="dropdown" [(ngModel)]="selectedMeasurements[ingredient]">
+              <ion-select-option value="piece/s">pc/s</ion-select-option>
+              <ion-select-option value="teaspoon">tsp</ion-select-option>
+              <ion-select-option value="tablespoon">tbsp</ion-select-option>
+              <ion-select-option value="cup">cup</ion-select-option>
+              <ion-select-option value="gallon">gal</ion-select-option>
+              <ion-select-option value="pint">pint</ion-select-option>
+              <ion-select-option value="oz">oz</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-button slot="end" (click)="deleteIngredient(ingredient)" class="delete-button">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  
+    
+    <ion-card *ngIf="selectedIngredients && selectedIngredients.length === 0">
+      <ion-card-content>
+        <p>No ingredients selected.</p>
+      </ion-card-content>
+    </ion-card>
+      
+    <ion-button expand="block" (click)="onSubmit()" (click)="gotoSearchbar()" class="custom-button" size="small">Save</ion-button>
+
+
+
+
+  </div>
+</ion-content>
+
+

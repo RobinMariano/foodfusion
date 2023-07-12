@@ -1,0 +1,53 @@
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+   --background: #cc791b;
+
+}
+
+.body-background { 
+  --background: url('/assets/img/user.png') no-repeat center center fixed;
+   background-size: cover; 
+}
+
+.logo-image {
+  width: 250px;
+  height: 250px;
+}
+
+.big-title {
+  font-size: 24px;
+  font-weight: bold;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.search-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.search-bar {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.search-results {
+  margin-top: 10px;
+  max-height: 150px; /* Adjust the maximum height as needed */
+  overflow-y: auto; /* Enable vertical scrolling if necessary */
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-recipe-button {
+  --background: transparent;
+  --border: none;
+  --color: #ffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+

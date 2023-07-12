@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar class="header-toolbar">
+    <ion-title class="big-title">FOODFUSION</ion-title>
+    <div class="logo-container">
+    </div>
+    <ion-buttons slot="end">
+      <ion-button class="add-recipe-button" (click)="addNewRecipe()">Add New Recipe</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="body-background" [fullscreen]="true">
+  <div id="container">
+    <div class="search-container">
+      <div class="logo-container">
+        <img src="assets/icon/logo.png" alt="FoodFusion Logo" class="logo-image">
+      </div>
+        <ion-searchbar placeholder="Search ingredients here.." class="search-bar"></ion-searchbar>
+    </div>
+<ion-list *ngIf="showResults">
+    <ion-item *ngFor="let result of results">
+                                         {{ result }}
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
