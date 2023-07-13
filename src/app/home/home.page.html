@@ -7,10 +7,11 @@
     </ion-buttons>
 
     <ion-title class="header-title">
-      <div class="logo-container"> 
+      <div class="logo-container">
         <h1 class="logo-text">Register Recipe</h1>
       </div>
     </ion-title>
+    
 
     <ion-buttons slot="end">
       <ion-button>
@@ -84,10 +85,11 @@
     </ion-card>
 
     <ion-card *ngIf="selectedIngredients && selectedIngredients.length === 0" translucent="true">
-      <ion-card-content>
+      <ion-card-content class="center-content">
         <p>No ingredients selected.</p>
       </ion-card-content>
     </ion-card>
+    
     <br>
     <ion-button expand="block" (click)="onSubmit()" (click)="gotoSearchbar()" class="custom-button" size="small" translucent="true">Save</ion-button>
   </div>
