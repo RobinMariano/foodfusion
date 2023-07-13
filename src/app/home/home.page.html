@@ -2,13 +2,12 @@
   <ion-toolbar class="icons">
     <ion-buttons slot="start">
       <ion-button (click)="gotoSearchbar()">
-        <ion-icon name="home-outline"></ion-icon>
+        <img src="assets/icon/logo.png" alt="FoodFusion Logo" class="logo-image">
       </ion-button>
     </ion-buttons>
 
     <ion-title class="header-title">
-      <div class="logo-container">
-        <img src="assets/icon/logo.png" alt="FoodFusion Logo" class="logo-image">
+      <div class="logo-container"> 
         <h1 class="logo-text">Register Recipe</h1>
       </div>
     </ion-title>
@@ -23,27 +22,32 @@
 
 <ion-content class="body-background" scrollEvents="true" [fullscreen]="true">
   <div id="container">
-    <ion-card class="custom-card rounded-card">
+    <ion-card class="custom-card">
       <ion-card-content>
-        <ion-item translucent="true">
-          <ion-label position="stacked" color="primary">Recipe Name<span class="required-field">*</span></ion-label>
+        <ion-item>
+          <ion-label position="stacked" color="black">Recipe Name<span class="required-field">*</span></ion-label>
           <ion-input label="" [(ngModel)]="recipeName" placeholder="Enter recipe name" required></ion-input>
         </ion-item>
-        <ion-item translucent="true">
-          <ion-label position="stacked" color="primary">Description<span class="required-field">*</span></ion-label>
-          <ion-textarea label="" [(ngModel)]="description" (input)="adjustTextareaHeight($event)" placeholder="Enter description" required></ion-textarea>
+        <br>
+        <ion-item>
+          <ion-label position="stacked" color="black">Description<span class="required-field">*</span></ion-label>
+          <ion-input label="" [(ngModel)]="description" placeholder="Enter recipe description" required></ion-input>
         </ion-item>
-        <ion-item translucent="true">
-          <ion-label position="stacked" color="primary">Ingredients<span class="required-field">*</span></ion-label>
+        <br>
+        <ion-item>
+          <ion-label position="stacked" color="black">Ingredients<span class="required-field">*</span></ion-label>
           <ion-input label="" [(ngModel)]="newIngredient" (ionChange)="addIngredient()" placeholder="Enter ingredient" required></ion-input>
         </ion-item>
-        <ion-item translucent="true">
-          <ion-label position="stacked" color="primary">Cooking Procedure<span class="required-field">*</span></ion-label>
-          <ion-textarea label="" [(ngModel)]="cookingProcedure" (input)="adjustTextareaHeight($event)" placeholder="Enter cooking procedure" required></ion-textarea>
+        <br>
+        <ion-item>
+          <ion-label position="stacked" color="black">Cooking Procedure<span class="required-field">*</span></ion-label>
+          <ion-textarea label="" [(ngModel)]="cookingProcedure" (input)="adjustTextareaHeight($event)"  placeholder="Enter cooking procedure" required></ion-textarea>
         </ion-item>
-        <ion-item translucent="true">
-          <ion-label position="stacked" color="primary">Upload Finished Recipe<span class="required-field">*</span></ion-label>
+        <br>
+        <ion-item>
+          <ion-label position="stacked" color="black">Upload Finished Recipe Photo<span class="required-field">*</span></ion-label><br>
           <input label="" type="file" (change)="onFileSelected($event)" accept="image/*" required>
+          <br>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -84,7 +88,7 @@
         <p>No ingredients selected.</p>
       </ion-card-content>
     </ion-card>
-
+    <br>
     <ion-button expand="block" (click)="onSubmit()" (click)="gotoSearchbar()" class="custom-button" size="small" translucent="true">Save</ion-button>
   </div>
 </ion-content>
