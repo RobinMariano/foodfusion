@@ -1,5 +1,5 @@
 <p>
-    <img src="https://github.com/RobinMariano/foodfusion/blob/main/FoodFusion-modified.png" class="logo" width="90" height="90" align="right" >
+    <img src="https://github.com/RobinMariano/foodfusion/blob/master/FoodFusion-modified.png" class="logo" width="90" height="90" align="right" >
 </p>
 
 
@@ -29,7 +29,7 @@ The application will let the administrator store different recipes within the sy
 ```
 4. Input the needed recipe details on their corresponding text area.
 ```
-![addpage](https://github.com/RobinMariano/foodfusion/blob/main/Untitled.png)
+![addpage](https://github.com/RobinMariano/foodfusion/blob/master/Untitled.png)
 
 <h2>  &nbsp; Development Tools Used</h2>
 <p align="left">
